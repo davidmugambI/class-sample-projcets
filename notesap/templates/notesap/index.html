@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+	<!--<p>Hello Geeks</p>-->
+	<h2>Note Taking Web App</h2>
+	<ul>
+		{% for note in notes_taken %}
+		<aside class="note-wrap not-white">
+				<li>{{note.text}}</li><br />
+        <a href="{% url 'notesap:delete' note.id %}"><button class="btn btn-danger">DELETE</button></a>
+        <a href="{% url 'notesap:update' note.id %}"><button class="btn btn-info">UPDATE</button></a>
+
+
+		</aside>
+		{% endfor %}
+	</ul>
+	<form method="POST" action="">{% csrf_token %}
+		{{ form.as_p }}
+		<input type="submit" value="Add note">
+
+	</form>
+{% endblock %}

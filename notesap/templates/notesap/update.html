@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>MOVIE UPDATE</h1>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+        <li {% if message.tags %} class="{{message.tags}}"{% endif %}>{{message}}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+{% if error %}}
+{{error}}
+{% endif %}
+<form action="" METHOD="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Update"/>
+    <p>Go back to the <a href="{% url 'notesap:index' %}">Notes</a> </p>
+
+</form>
+{% endblock %}
