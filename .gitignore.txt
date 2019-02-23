@@ -1,0 +1,8 @@
+*.pyc
+*.tcl
+*.msg
+*.gif
+*.tc
+*.xbm
+*.png
+*.
