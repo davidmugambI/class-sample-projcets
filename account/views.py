@@ -46,8 +46,13 @@ def register(request):
         return render(request, 'account/reg_form.html',args)
 
 #@login_required
-def view_profile(request):
-    args = {'user': request.user}
+def view_profile(request,pk=None):
+    if pk:
+        user = User.objects.get(pk=pk)
+    else:
+        user = request.user
+    #args = {'user': request.user}
+    args = {'user': user}
     return render(request, 'account/profile.html', args)
 
 '''
@@ -70,7 +75,7 @@ def edit_profile(request):
 
         if form.is_valid():
             form.save()
-            return redirect('profile')
+            return redirect('account:profile')
     else:
         form = EditProfileForm(instance=request.user)
         args = {'form': form}

@@ -6,3 +6,8 @@
 *.xbm
 *.png
 *.
+.idea/
+Lib/
+Scripts/
+tcl/
+*.db

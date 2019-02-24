@@ -6,6 +6,13 @@
         <p>firstname:{{ user.first_name }}</p>
         <p>lastname:{{ user.last_name }}</p>
         <p>email:{{ user.email }}</p>
+        <p>Descrption:{{ user.userprofile.description }}</p>
+        <p>Phone:{{ user.userprofile.phone }}</p>
+        <p>City:{{ user.userprofile.city }}</p>
+        <p>Website:{{ user.userprofile.website }}</p>
+        {% if user.userprofile.image %}
+            <img src="{{ user.userprofile.image.url }}" width="240">
+        {% endif %}
 
     </div>
 

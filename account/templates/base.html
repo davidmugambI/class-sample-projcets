@@ -4,11 +4,13 @@
     {% load static %}
 
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'account/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'account/css/bootstrap.css' %}">
+
+    <meta name="viewport" content="width=device-width", initial-scale="1.0">
     {% block title %}
         <title>Title</title>
     {% endblock %}
-    <link rel="stylesheet" type="text/css" href="{% static 'account/style.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'account/css/bootstrap.css' %}">
 
 </head>
 <body>
@@ -28,14 +30,18 @@
           <div id="navbar" class="navbar-collapse collapse">
               {% if user.is_authenticated %}
                   <ul class="nav navbar-nav">
-                    <li><a href="/account">Home</a></li>
-                    <li><a href="/account/logout">Logout</a></li>
+                    <li><a href="{% url 'home:home' %}">Home</a></li>
                     <li><a href="/account/profile">Profile</a></li>
                     <li><a href="/account/profile/edit">Edit Profile</a></li>
                     <li><a href="/account/change-password">Change Password</a></li>
-                    <li><a href="/account/reset-password">Reset Password</a></li>
+                  </ul>
+                  <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/account/logout">Logout</a></li>
                   </ul>
               {% else %}
+                  <ul class="nav navbar-nav">
+                    <li><a href="/account/reset-password">Reset Password</a></li>
+                  </ul>
                 <ul class="nav navbar-nav navbar-right">
                   <li><a href="/account/login">Login</a></li>
                   <li><a href="/account/register">Register</a></li>
@@ -51,6 +57,8 @@
 
 
 {% endblock %}
+<script src="{% static 'account/js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'account/js/bootstrap.min.js' %}"></script>
 </div>
 </body>
 </html>
