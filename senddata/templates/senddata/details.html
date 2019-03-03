@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block body %}
+        <h3>Displaying data</h3>
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Gender</th>
+      <th scope="col">Course</th>
+      <th scope="col">Level</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for detail in details %}
+    <tr>
+      <th scope="row">{{ detail.id }}</th>
+      <td>{{ detail.name }}</td>
+      <td>{{ detail.gender }}</td>
+      <td>{{ detail.course }}</td>
+      <td>{{ detail.level }}</td>
+    </tr>
+    <tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
