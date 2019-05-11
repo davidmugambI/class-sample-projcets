@@ -31,11 +31,13 @@ def delete(request, id):
 
 def update(request,id=None):
     noteedit = get_object_or_404(Note, id=id)
-    form = UpdateForm(request.POST or None)
+    form = UpdateForm(request.POST or None, instance=noteedit)
     if form.is_valid():
         noteedit = form.save(commit=False)
         noteedit.save()
         messages.success(request, "Note successfully updated")
+    else:
+	form = UpdateForm(instance=noteedit)
     return render(request, 'notesap/update.html', {'form': form, 'noteedit': noteedit})
 
 	
